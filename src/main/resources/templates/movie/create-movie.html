@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="fragments/head.html(currentPage='create-movie-fragment', customCSS='create-movie.css')"></head>
+<header th:replace="fragments/header.html"></header>
+<body>
+<div class="container">
+    <div class="center-box">
+        <h1 style="text-align: center; color:whitesmoke">Opret film</h1>
+    <!-- "method" fortæller hvordan form-data skal sendes til en side som er specificeret i "action", altså createCustomer siden. -->
+    <form action="/create-movie" method="post">
+        <div class="movie-grid">
+            <!-- nedenstående gør vi brug af input type "text" hvor name er det field, som vi ønsker at redigere i, og placeholderen er den tekst, som står i tekstfeltet -->
+            <label>
+                Titel<input type="text" name="title" placeholder="Eks. James Bond">
+            </label>
+            <label>
+                Pris i kr.<input type="text" name="price" placeholder="Pr. billet">
+            </label>
+            <label>
+                Varighed<input type="text" name="length" placeholder="I minutter">
+            </label>
+            <label for="age">Filmcensur
+                <select id="age" name="age">
+                    <option name="age" label="Tilladt for alle">Tilladt for alle</option>
+                    <option name="age" label="Frarådes børn under 7 år">Frarådes børn under 7 år</option>
+                    <option name="age" label="Tilladt for børn fra 11 år">Tilladt for børn fra 11 år</option>
+                    <option name="age" label="Tilladt for børn fra 15 år">Tilladt for børn fra 15 år</option>
+                </select>
+            </label>
+            <label>
+                Genre<input type="text" name="genre" placeholder="Eks. Action">
+            </label>
+            <label>
+                Info<input type="text" name="description" placeholder="Indtast kort beskrivelse">
+            </label>
+            <label>
+                Skuespillere<input type="text" name="actors" placeholder="Relevante skuespillere">
+            </label>
+            <label>
+                Plakat<input type="text" name="movieposter" placeholder="Indtast url">
+            </label>
+            <div class="">
+                <button type="submit" class="buttonClass" value="Create new movie">Opret film</button>
+            </div>
+        </div>
+    </form>
+    </div>
+</div>
+</body>
+<footer th:replace="fragments/footer.html"></footer>
+</html>

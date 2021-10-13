@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="fragments/head.html(currentPage='Edit Movie', customCSS='/create-customer.css')"></head>
+<header th:replace="fragments/header.html"></header>
+<body>
+<h1 style="text-align: center">Opret produkt</h1>
+    <form th:action="@{/create-product}" id="customerFORM" method="POST">
+        <input type="text" placeholder="Navn" name="name"/>
+        <input type="text" placeholder="Pris" name="price"/>
+        <button type="submit" id="customerBTN">Opret produkt</button>
+    </form>
+<br>
+<br>
+</body>
+<footer th:replace="fragments/footer.html"></footer>
+</html>

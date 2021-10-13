@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head.html(currentPage='All products', customCSS='/products.css')"></head>
+<header th:replace="fragments/header.html"></header>
+<link rel="stylesheet" href="stylesheets/products.css">
+<body>
+<h1 style="text-align: center; color:whitesmoke">Alle produkter</h1>
+<br>
+<a href="/create-product">
+    <button class="create-btn"> Opret produkt </button>
+</a>
+<br>
+<br>
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th>Produkt ID</th>
+                <th>Produkt navn</th>
+                <th>Produkt pris i kr.</th>
+                <th>Andre muligheder</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="product: ${products}">
+                <td th:text="${product.idproducts}"></td>
+                <td th:text="${product.name}"></td>
+                <td th:text="${product.price}"></td>
+                <td>
+                    <a th:href="@{'/deleteproduct/'+${product.idproducts}}">
+                        <button class="delete-btn">Fjern</button>
+                    </a>
+                    <a th:href="@{'/products/'+${product.idproducts}+'/edit'}">
+                        <button class="edit-btn">Rediger</button>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+<br>
+<br>
+
+</body>
+<footer th:replace="fragments/footer.html"></footer>
+</html>

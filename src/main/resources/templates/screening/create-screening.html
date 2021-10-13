@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head.html(currentPage='screenings', customCSS='create-screening.css')"></head>
+<body>
+<header th:replace="fragments/header.html"></header>
+
+
+<div class="grid">
+
+    <div class="movie">
+        <p>Du har valgt</p>
+        <h1 th:text="${movie.title}"></h1>
+
+        <form action="/create-screening" method="post">
+            <div class="screening-grid">
+
+                <input type="hidden" name="movies_idmovies" th:value="${movie.getIdmovies()}">
+
+                <input type="date" id="start" name="date">
+
+                <label for="timeslot">Tidspunkt:
+                    <select id="timeslot" name="timeslot">
+                        <option name="timeslot" label="12:00">1</option>
+                        <option name="timeslot" label="14:15">2</option>
+                        <option name="timeslot" label="16:30">3</option>
+                        <option name="timeslot" label="18:45">4</option>
+                        <option name="timeslot" label="21:00">5</option>
+                    </select>
+                </label>
+
+                <label for="cinemas_idcinemahall">Hal:
+                    <select id="cinemas_idcinemahall" name="cinemas_idcinemahall">
+                        <option name="cinemas_idcinemahall" label="biograf 1">1</option>
+                        <option name="cinemas_idcinemahall" label="biograf 2">2</option>
+                    </select>
+                </label>
+
+                <button type="submit" class="buttonClass" value="Create new movie">Opret screening</button>
+            </div>
+        </form>
+    </div>
+    <div class="date">
+        <h1>Screenings i dag</h1>
+    </div>
+
+
+    <div class="cin1">
+        <h1>Biograf 1</h1>
+        <ul class="bioInfo" th:each="screenings1 : ${screenings1}">
+            <li>
+                <p th:text="'Film ID: ' + ${screenings1.movies_idmovies}"></p>
+            </li>
+            <li>
+                <div th:switch="${screenings1.timeslot}">
+                    <h3 th:case="'1'">Tidspunkt: 12:00 </h3>
+                    <h3 th:case="'2'">Tidspunkt: 14:15 </h3>
+                    <h3 th:case="'3'">Tidspunkt: 16:30 </h3>
+                    <h3 th:case="'4'">Tidspunkt: 18:45 </h3>
+                    <h3 th:case="'4'">Tidspunkt: 18:45 </h3>
+                    <h3 th:case="'5'">Tidspunkt: 21:00 </h3>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="cin2">
+        <h1>Biograf 2</h1>
+
+        <ul class="bioInfo" th:each="screenings2 : ${screenings2}">
+            <li>
+                <p th:text="'Film ID: ' + ${screenings2.movies_idmovies}"></p>
+            </li>
+            <li>
+                <div th:switch="${screenings2.timeslot}">
+                    <h3 th:case="'1'">Tidspunkt: 12:00 </h3>
+                    <h3 th:case="'2'">Tidspunkt: 14:15 </h3>
+                    <h3 th:case="'3'">Tidspunkt: 16:30 </h3>
+                    <h3 th:case="'4'">Tidspunkt: 18:45 </h3>
+                    <h3 th:case="'4'">Tidspunkt: 18:45 </h3>
+                    <h3 th:case="'5'">Tidspunkt: 21:00 </h3>
+                </div>
+            </li>
+        </ul>
+
+
+    </div>
+
+</div>
+
+
+</body>
+<footer th:replace="fragments/footer.html"></footer>
+</html>

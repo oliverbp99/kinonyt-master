@@ -1,0 +1,47 @@
+
+.grid {
+    display: grid;
+    place-items: center;
+
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 0.5fr 0.5fr 0.5fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+    "movie movie"
+    "date date"
+    "cin1 cin2";
+}
+
+.movie {
+    grid-area: movie;
+}
+
+.date { grid-area: date; }
+
+.cin1 { grid-area: cin1; }
+
+.cin2 { grid-area: cin2; }
+
+.bioInfo {
+list-style-type: square;
+    background-color: #990000;
+    border-radius: 10px;
+    padding: 20px;
+    color: white;
+}
+p {
+    color:white;
+}
+button {
+    background-color: #990000;
+    border-radius: 10px;
+    color: white;
+}
+h1 {
+    color: white;
+}
+label{
+    color: white;
+}
+
